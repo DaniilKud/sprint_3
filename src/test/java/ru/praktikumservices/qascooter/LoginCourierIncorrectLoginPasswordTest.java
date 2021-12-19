@@ -44,9 +44,9 @@ public class LoginCourierIncorrectLoginPasswordTest {
 
         assertThat("Можно зарегестрироваться без логина", message, equalTo("Недостаточно данных для входа"));
     }
-
+    
     @Test
-    @DisplayName("Нельязя авторизоваться без Пароля")
+    @DisplayName("Нельзя авторизоваться без Пароля")
     public void authorizationCourierWithoutPasswordCheckStatusCode400Error() {
         CourierLogin bodyLogin = new CourierLogin (courier.login, "");
         String message = courierCreateAndDelete.login (bodyLogin)
@@ -59,7 +59,7 @@ public class LoginCourierIncorrectLoginPasswordTest {
     }
 
     @Test
-    @DisplayName("Нельязя авторизоваться с некорректным Логином")
+    @DisplayName("Нельзя авторизоваться с некорректным Логином")
     public void authorizationCourierIncorrectLoginCheckStatusCode404Error() {
         CourierLogin bodyLogin = new CourierLogin ("м", courier.password);
         message = courierCreateAndDelete.login (bodyLogin)
@@ -71,7 +71,7 @@ public class LoginCourierIncorrectLoginPasswordTest {
 
     }
     @Test
-    @DisplayName("Нельязя авторизоваться с некорректным Паролем")
+    @DisplayName("Нельзя авторизоваться с некорректным Паролем")
     public void authorizationCourierIncorrectPasswordCheckStatusCode404Error() {
         CourierLogin bodyLogin = new CourierLogin (courier.login, "5");
         message = courierCreateAndDelete.login (bodyLogin)
