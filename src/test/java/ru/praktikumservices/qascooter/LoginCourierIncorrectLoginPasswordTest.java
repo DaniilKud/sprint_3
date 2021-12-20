@@ -19,6 +19,7 @@ public class LoginCourierIncorrectLoginPasswordTest {
     public void setUp() {
         courierCreateAndDelete = new CourierCreateAndDelete();
         courierCreateAndDelete.create(courier);
+
         CourierLogin bodyLogin = CourierLogin.from (courier);
         courierId = courierCreateAndDelete.login(bodyLogin)
                 .assertThat()
@@ -33,7 +34,7 @@ public class LoginCourierIncorrectLoginPasswordTest {
 
 
     @Test
-    @DisplayName("Нельязя авторизоваться без Логина")
+    @DisplayName("Нельзя авторизоваться без Логина")
     public void authorizationCourierWithoutLoginCheckStatusCode400Error() {
         CourierLogin bodyLogin = new CourierLogin ("", courier.password);
         String message = courierCreateAndDelete.login (bodyLogin)
